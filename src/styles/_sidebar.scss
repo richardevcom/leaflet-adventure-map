@@ -1,0 +1,288 @@
+/**
+ * Sidebar component styles
+ * Minimal, modern design with smooth interactions
+ */
+
+// Brand colors (duplicated from main.scss for @use compatibility)
+$accent-color: #ff6b35;
+$dark-gray: #2c3e50;
+$light-gray: #ecf0f1;
+$black: #000000;
+$white: #ffffff;
+$disabled-gray: #6c7a89;
+
+.destinations-sidebar {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 340px;
+  max-height: 85vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 16px 0 0 16px;
+  box-shadow: -4px 0 32px rgba(0, 0, 0, 0.12), -1px 0 8px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Header section
+  .sidebar-header {
+    padding: 28px 24px 22px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: linear-gradient(180deg, $white 0%, rgba($light-gray, 0.3) 100%);
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 700;
+      color: $dark-gray;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 13px;
+      color: $disabled-gray;
+      font-weight: 500;
+    }
+  }
+
+  // Scrollable content area
+  .sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 4px 0;
+    
+    // Custom scrollbar - minimal & modern
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      margin: 4px 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  // Country item (collapsible)
+  .country-item {
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // Country header (clickable)
+    .country-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 24px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: $white;
+      position: relative;
+
+      // Subtle left border for active state
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background: $accent-color;
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .country-name {
+        flex: 1;
+        font-size: 15px;
+        font-weight: 600;
+        color: $dark-gray;
+        transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .country-count {
+        font-size: 11px;
+        font-weight: 600;
+        color: $disabled-gray;
+        padding: 4px 10px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .chevron {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: $disabled-gray;
+        flex-shrink: 0;
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.025);
+        
+        .country-name {
+          color: $accent-color;
+        }
+      }
+    }
+
+    // Cities list (hidden by default)
+    .cities-list {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.015) 0%, rgba(0, 0, 0, 0.025) 100%);
+    }
+
+    // Expanded state
+    &.expanded {
+      .country-header .chevron {
+        transform: rotate(180deg);
+      }
+
+      .cities-list {
+        max-height: 500px; // Enough for most city lists
+        opacity: 1;
+      }
+    }
+
+    // Active country state
+    &.active {
+      .country-header {
+        background: rgba($accent-color, 0.06);
+
+        &::before {
+          width: 4px;
+        }
+
+        .country-name {
+          color: $accent-color;
+          font-weight: 700;
+        }
+
+        .country-count {
+          background: rgba($accent-color, 0.15);
+          color: $accent-color;
+          font-weight: 700;
+        }
+
+        .chevron {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+
+  // City item
+  .city-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px 14px 48px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+
+    // Left indicator line
+    &::before {
+      content: '';
+      position: absolute;
+      left: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid $disabled-gray;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .city-icon {
+      flex-shrink: 0;
+      color: $disabled-gray;
+      transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.8;
+    }
+
+    .city-name {
+      font-size: 14px;
+      color: $dark-gray;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 500;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.035);
+      padding-left: 50px;
+
+      &::before {
+        border-color: $accent-color;
+        background: $accent-color;
+      }
+
+      .city-icon {
+        color: $accent-color;
+        opacity: 1;
+      }
+
+      .city-name {
+        color: $accent-color;
+      }
+    }
+
+    // Active city state
+    &.active {
+      background: rgba($accent-color, 0.12);
+      padding-left: 50px;
+
+      &::before {
+        border-color: $accent-color;
+        background: $accent-color;
+        width: 8px;
+        height: 8px;
+      }
+
+      .city-icon {
+        color: $accent-color;
+        opacity: 1;
+      }
+
+      .city-name {
+        color: $accent-color;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .destinations-sidebar {
+    width: 280px;
+
+    .sidebar-header h2 {
+      font-size: 18px;
+    }
+  }
+}

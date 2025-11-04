@@ -1,0 +1,13 @@
+<svg width="64" height="80" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Price tag background -->
+  <g class="price-pin">
+    <!-- Top rectangle for price -->
+    <rect x="4" y="4" width="56" height="32" rx="6" fill="#EA5B10" stroke="#ffffff" stroke-width="2"/>
+    
+    <!-- Arrow/pointer bottom -->
+    <path d="M 32 72 L 20 36 L 44 36 Z" fill="#EA5B10" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+    
+    <!-- Price text placeholder (will be replaced dynamically) -->
+    <text x="32" y="26" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold" class="price-text">€100</text>
+  </g>
+</svg>

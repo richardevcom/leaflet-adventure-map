@@ -1,0 +1,725 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "iceland-001",
+        "name": "Northern Lights Photography Expedition",
+        "countryCode": "IS",
+        "countryName": "Iceland",
+        "duration": 7,
+        "difficulty": "Medium",
+        "typology": "Sports Activities",
+        "startDate": "2025-11-01",
+        "endDate": "2025-03-31",
+        "price": 1850,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=800",
+        "url": "/adventures/iceland-northern-lights-photography",
+        "description": "Capture the magic of Aurora Borealis in Iceland's stunning winter landscapes."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-21.9426, 64.1466]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "iceland-002",
+        "name": "Golden Circle & Glacier Hiking",
+        "countryCode": "IS",
+        "countryName": "Iceland",
+        "duration": 5,
+        "difficulty": "Challenging",
+        "typology": "Sports Activities",
+        "startDate": "2025-06-01",
+        "endDate": "2025-09-30",
+        "price": 1450,
+        "salePrice": 1299,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=800",
+        "url": "/adventures/iceland-golden-circle-glacier",
+        "description": "Explore geysers, waterfalls, and hike on ancient glaciers in one unforgettable journey."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-20.3034, 64.3261]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "iceland-003",
+        "name": "Blue Lagoon Wellness Retreat",
+        "countryCode": "IS",
+        "countryName": "Iceland",
+        "duration": 10,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-01-15",
+        "endDate": "2025-12-20",
+        "price": 2100,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+        "url": "/adventures/iceland-blue-lagoon-wellness",
+        "description": "Rejuvenate in geothermal springs and experience Iceland's volcanic landscapes."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-22.4489, 63.8804]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "norway-001",
+        "name": "Lofoten Islands Winter Photography",
+        "countryCode": "NO",
+        "countryName": "Norway",
+        "duration": 7,
+        "difficulty": "Medium",
+        "typology": "Sports Activities",
+        "startDate": "2025-12-01",
+        "endDate": "2026-02-28",
+        "price": 2200,
+        "salePrice": 1980,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800",
+        "url": "/adventures/norway-lofoten-photography",
+        "description": "Capture dramatic Arctic landscapes, fishing villages, and Northern Lights above the 68th parallel."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.4011, 68.1521]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "norway-002",
+        "name": "Fjord Kayaking Adventure",
+        "countryCode": "NO",
+        "countryName": "Norway",
+        "duration": 5,
+        "difficulty": "Challenging",
+        "typology": "Sports Activities",
+        "startDate": "2025-05-15",
+        "endDate": "2025-09-15",
+        "price": 1750,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1503871788Å65-84f5bf41ee09?w=800",
+        "url": "/adventures/norway-fjord-kayaking",
+        "description": "Paddle through UNESCO World Heritage fjords surrounded by towering cliffs and waterfalls."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [6.7315, 60.8939]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "norway-003",
+        "name": "Oslo to Bergen Railway Journey",
+        "countryCode": "NO",
+        "countryName": "Norway",
+        "duration": 15,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-06-01",
+        "endDate": "2025-09-30",
+        "price": 2850,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1513519245088-0e12902e5a91?w=800",
+        "url": "/adventures/norway-railway-journey",
+        "description": "Experience one of the world's most beautiful train rides with stops in mountain villages."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.7522, 59.9139]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "newzealand-001",
+        "name": "Milford Track Great Walk",
+        "countryCode": "NZ",
+        "countryName": "New Zealand",
+        "duration": 7,
+        "difficulty": "Challenging",
+        "typology": "Sports Activities",
+        "startDate": "2025-10-01",
+        "endDate": "2026-04-30",
+        "price": 1950,
+        "salePrice": 1755,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800",
+        "url": "/adventures/newzealand-milford-track",
+        "description": "Trek through pristine rainforests, alpine passes, and alongside stunning waterfalls."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [167.9219, -44.6719]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "newzealand-002",
+        "name": "Queenstown Adventure Week",
+        "countryCode": "NZ",
+        "countryName": "New Zealand",
+        "duration": 7,
+        "difficulty": "Difficult",
+        "typology": "Sports Activities",
+        "startDate": "2025-11-01",
+        "endDate": "2026-03-31",
+        "price": 2450,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "url": "/adventures/newzealand-queenstown-adventure",
+        "description": "Bungee jumping, skydiving, jet boating, and mountain biking in the adventure capital of the world."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [168.6626, -45.0312]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "newzealand-003",
+        "name": "Hobbiton & Rotorua Relaxation",
+        "countryCode": "NZ",
+        "countryName": "New Zealand",
+        "duration": 10,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-09-01",
+        "endDate": "2026-05-31",
+        "price": 2200,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800",
+        "url": "/adventures/newzealand-hobbiton-rotorua",
+        "description": "Visit the Shire, explore geothermal wonders, and relax in natural hot springs."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [175.6872, -37.8722]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "costarica-001",
+        "name": "Arenal Volcano & Rainforest Expedition",
+        "countryCode": "CR",
+        "countryName": "Costa Rica",
+        "duration": 7,
+        "difficulty": "Medium",
+        "typology": "Sports Activities",
+        "startDate": "2025-01-10",
+        "endDate": "2025-12-15",
+        "price": 1650,
+        "salePrice": 1485,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800",
+        "url": "/adventures/costarica-arenal-rainforest",
+        "description": "Hike active volcanoes, zip-line through cloud forests, and spot exotic wildlife."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.7032, 10.4630]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "costarica-002",
+        "name": "Caribbean Coast Surf & Yoga",
+        "countryCode": "CR",
+        "countryName": "Costa Rica",
+        "duration": 10,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-03-01",
+        "endDate": "2025-11-30",
+        "price": 1850,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1564923214498-48e5a6f357e9?w=800",
+        "url": "/adventures/costarica-surf-yoga",
+        "description": "Learn to surf, practice daily yoga, and unwind on pristine Caribbean beaches."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-82.7543, 9.7489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "costarica-003",
+        "name": "Manuel Antonio Wildlife Safari",
+        "countryCode": "CR",
+        "countryName": "Costa Rica",
+        "duration": 5,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-20",
+        "price": 1350,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1534445538923-ab38438550f1?w=800",
+        "url": "/adventures/costarica-wildlife-safari",
+        "description": "Encounter sloths, monkeys, and toucans in one of the world's most biodiverse parks."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.1446, 9.3904]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "japan-001",
+        "name": "Tokyo to Kyoto Cultural Journey",
+        "countryCode": "JP",
+        "countryName": "Japan",
+        "duration": 15,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-03-20",
+        "endDate": "2025-11-30",
+        "price": 3200,
+        "salePrice": 2880,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800",
+        "url": "/adventures/japan-cultural-journey",
+        "description": "Experience ancient temples, bullet trains, cherry blossoms, and authentic kaiseki cuisine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.6917, 35.6895]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "japan-002",
+        "name": "Mount Fuji Climbing Expedition",
+        "countryCode": "JP",
+        "countryName": "Japan",
+        "duration": 7,
+        "difficulty": "Challenging",
+        "typology": "Sports Activities",
+        "startDate": "2025-07-01",
+        "endDate": "2025-09-10",
+        "price": 1950,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800",
+        "url": "/adventures/japan-mount-fuji",
+        "description": "Climb Japan's sacred peak and watch sunrise from the summit at 3,776 meters."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.7274, 35.3606]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "japan-003",
+        "name": "Hokkaido Winter Wonderland",
+        "countryCode": "JP",
+        "countryName": "Japan",
+        "duration": 10,
+        "difficulty": "Medium",
+        "typology": "Vacation",
+        "startDate": "2025-12-15",
+        "endDate": "2026-02-28",
+        "price": 2650,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1605031414043-1f7444a4d0c5?w=800",
+        "url": "/adventures/japan-hokkaido-winter",
+        "description": "Powder skiing, snow festivals, hot springs, and fresh seafood in Japan's northern paradise."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [141.3469, 43.0642]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "morocco-001",
+        "name": "Sahara Desert Camel Trek",
+        "countryCode": "MA",
+        "countryName": "Morocco",
+        "duration": 7,
+        "difficulty": "Medium",
+        "typology": "Sports Activities",
+        "startDate": "2025-10-01",
+        "endDate": "2026-04-30",
+        "price": 1450,
+        "salePrice": 1305,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800",
+        "url": "/adventures/morocco-sahara-trek",
+        "description": "Ride camels through golden dunes, sleep under stars, and visit Berber villages."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.4711, 31.0801]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "morocco-002",
+        "name": "Atlas Mountains Hiking & Villages",
+        "countryCode": "MA",
+        "countryName": "Morocco",
+        "duration": 10,
+        "difficulty": "Challenging",
+        "typology": "Sports Activities",
+        "startDate": "2025-04-01",
+        "endDate": "2025-10-31",
+        "price": 1650,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=800",
+        "url": "/adventures/morocco-atlas-mountains",
+        "description": "Trek to North Africa's highest peak and stay with local families in mountain villages."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-7.9181, 31.1728]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "morocco-003",
+        "name": "Marrakech to Fez Imperial Cities",
+        "countryCode": "MA",
+        "countryName": "Morocco",
+        "duration": 10,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-09-15",
+        "endDate": "2026-05-31",
+        "price": 1750,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=800",
+        "url": "/adventures/morocco-imperial-cities",
+        "description": "Explore ancient medinas, souks, palaces, and taste authentic Moroccan cuisine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-7.9811, 31.6295]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "peru-001",
+        "name": "Machu Picchu Inca Trail",
+        "countryCode": "PE",
+        "countryName": "Peru",
+        "duration": 7,
+        "difficulty": "Challenging",
+        "typology": "Sports Activities",
+        "startDate": "2025-04-01",
+        "endDate": "2025-10-31",
+        "price": 1850,
+        "salePrice": 1665,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800",
+        "url": "/adventures/peru-inca-trail",
+        "description": "Trek the classic 4-day Inca Trail to reach Machu Picchu at sunrise."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.5450, -13.1631]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "peru-002",
+        "name": "Amazon Rainforest Exploration",
+        "countryCode": "PE",
+        "countryName": "Peru",
+        "duration": 10,
+        "difficulty": "Medium",
+        "typology": "Sports Activities",
+        "startDate": "2025-05-01",
+        "endDate": "2025-11-30",
+        "price": 2100,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800",
+        "url": "/adventures/peru-amazon-exploration",
+        "description": "Navigate jungle rivers, spot pink dolphins, and learn from indigenous communities."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.2516, -3.7437]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "peru-003",
+        "name": "Lake Titicaca & Cusco Heritage",
+        "countryCode": "PE",
+        "countryName": "Peru",
+        "duration": 15,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-03-01",
+        "endDate": "2025-12-15",
+        "price": 2400,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=800",
+        "url": "/adventures/peru-titicaca-cusco",
+        "description": "Visit floating islands, colonial architecture, and experience Andean culture."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.0199, -15.8402]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tanzania-001",
+        "name": "Serengeti Safari & Wildebeest Migration",
+        "countryCode": "TZ",
+        "countryName": "Tanzania",
+        "duration": 10,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-06-15",
+        "endDate": "2025-10-31",
+        "price": 3450,
+        "salePrice": 3105,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800",
+        "url": "/adventures/tanzania-serengeti-safari",
+        "description": "Witness the Great Migration and encounter the Big Five on luxury safari."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [34.8333, -2.3333]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tanzania-002",
+        "name": "Kilimanjaro Summit Expedition",
+        "countryCode": "TZ",
+        "countryName": "Tanzania",
+        "duration": 10,
+        "difficulty": "Difficult",
+        "typology": "Sports Activities",
+        "startDate": "2025-01-10",
+        "endDate": "2025-03-31",
+        "price": 2850,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1609198092357-c7158b1378b0?w=800",
+        "url": "/adventures/tanzania-kilimanjaro-summit",
+        "description": "Climb Africa's highest peak via the scenic Machame Route to 5,895 meters."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [37.3556, -3.0674]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tanzania-003",
+        "name": "Zanzibar Beach & Spice Island Retreat",
+        "countryCode": "TZ",
+        "countryName": "Tanzania",
+        "duration": 7,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-01-01",
+        "endDate": "2025-12-31",
+        "price": 1950,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        "url": "/adventures/tanzania-zanzibar-beach",
+        "description": "Relax on white sand beaches, snorkel coral reefs, and tour historic Stone Town."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.2667, -6.1639]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "portugal-001",
+        "name": "Douro Valley Wine & Hiking",
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "duration": 7,
+        "difficulty": "Medium",
+        "typology": "Vacation",
+        "startDate": "2025-04-01",
+        "endDate": "2025-10-31",
+        "price": 1650,
+        "salePrice": 1485,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1516655855035-d5215bcb5604?w=800",
+        "url": "/adventures/portugal-douro-valley",
+        "description": "Hike through terraced vineyards, taste Port wine, and cruise the Douro River."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-7.7936, 41.1621]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "portugal-002",
+        "name": "Algarve Coastal Adventure",
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "duration": 10,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-05-01",
+        "endDate": "2025-09-30",
+        "price": 1750,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800",
+        "url": "/adventures/portugal-algarve-coastal",
+        "description": "Explore sea caves, golden beaches, cliff-top trails, and charming fishing villages."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-8.2465, 37.0179]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "portugal-003",
+        "name": "Lisbon to Porto Cultural Discovery",
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "duration": 15,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-03-15",
+        "endDate": "2025-11-30",
+        "price": 2100,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800",
+        "url": "/adventures/portugal-lisbon-porto",
+        "description": "Experience fado music, historic trams, azulejo tiles, and authentic Portuguese cuisine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-9.1393, 38.7223]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "greece-001",
+        "name": "Santorini & Mykonos Island Hopping",
+        "countryCode": "GR",
+        "countryName": "Greece",
+        "duration": 10,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-04-15",
+        "endDate": "2025-10-31",
+        "price": 2250,
+        "salePrice": 2025,
+        "onSale": true,
+        "imageUrl": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800",
+        "url": "/adventures/greece-island-hopping",
+        "description": "Sail between iconic white-washed villages, azure waters, and ancient ruins."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.4615, 36.3932]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "greece-002",
+        "name": "Crete Adventure & Archaeology",
+        "countryCode": "GR",
+        "countryName": "Greece",
+        "duration": 7,
+        "difficulty": "Medium",
+        "typology": "Sports Activities",
+        "startDate": "2025-05-01",
+        "endDate": "2025-10-15",
+        "price": 1750,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800",
+        "url": "/adventures/greece-crete-adventure",
+        "description": "Hike Samaria Gorge, explore Minoan palaces, and kayak along dramatic coastlines."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.1333, 35.2401]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "greece-003",
+        "name": "Athens & Delphi Classical Tour",
+        "countryCode": "GR",
+        "countryName": "Greece",
+        "duration": 15,
+        "difficulty": "Easy",
+        "typology": "Vacation",
+        "startDate": "2025-03-20",
+        "endDate": "2025-11-30",
+        "price": 2400,
+        "salePrice": null,
+        "onSale": false,
+        "imageUrl": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=800",
+        "url": "/adventures/greece-classical-tour",
+        "description": "Walk among ancient temples, visit the Oracle of Delphi, and taste Mediterranean cuisine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.7275, 37.9838]
+      }
+    }
+  ]
+}

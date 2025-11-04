@@ -1,0 +1,265 @@
+/**
+ * Debug toolbar styles
+ */
+
+.debug-toolbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  max-height: 600px;
+  background: rgba(44, 62, 80, 0.98);
+  border: 2px solid #ff6b35;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: 12px;
+  color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    max-height: 40px;
+    
+    .debug-toolbar-content {
+      display: none;
+    }
+  }
+}
+
+.debug-toolbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #ff6b35;
+  color: #fff;
+  font-weight: bold;
+  cursor: move;
+  user-select: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.debug-toolbar-title {
+  font-size: 14px;
+}
+
+.debug-toolbar-content {
+  padding: 15px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.debug-section {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(236, 240, 241, 0.2);
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin: 0 0 10px 0;
+    color: #ff6b35;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+      color: #ff6b35;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+      cursor: pointer;
+    }
+  }
+}
+
+.debug-btn {
+  background: #34495e;
+  border: 1px solid #ff6b35;
+  color: #ecf0f1;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: inherit;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #ff6b35;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &.debug-btn-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
+    text-align: center;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.debug-logs {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+.debug-log-count {
+  color: #95a5a6;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.debug-log-container {
+  max-height: 250px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ff6b35;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #e85d2f;
+    }
+  }
+}
+
+.debug-log-entry {
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  border-left: 3px solid;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 11px;
+  line-height: 1.4;
+
+  &.debug-log-info {
+    border-color: #3498db;
+  }
+
+  &.debug-log-warn {
+    border-color: #f39c12;
+  }
+
+  &.debug-log-error {
+    border-color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+  }
+
+  &.debug-log-success {
+    border-color: #2ecc71;
+  }
+}
+
+.debug-log-time {
+  color: #95a5a6;
+  margin-right: 8px;
+  font-size: 10px;
+}
+
+.debug-log-type {
+  font-weight: bold;
+  margin-right: 8px;
+  
+  .debug-log-info & {
+    color: #3498db;
+  }
+  
+  .debug-log-warn & {
+    color: #f39c12;
+  }
+  
+  .debug-log-error & {
+    color: #e74c3c;
+  }
+  
+  .debug-log-success & {
+    color: #2ecc71;
+  }
+}
+
+.debug-log-message {
+  color: #ecf0f1;
+}
+
+.debug-log-data {
+  margin-top: 6px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  font-size: 10px;
+  color: #95a5a6;
+  overflow-x: auto;
+  max-height: 150px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ff6b35;
+    border-radius: 3px;
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .debug-toolbar {
+    width: calc(100vw - 40px);
+    max-width: 400px;
+    bottom: 10px;
+    right: 10px;
+    max-height: 50vh;
+  }
+}

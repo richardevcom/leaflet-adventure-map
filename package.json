@@ -1,0 +1,29 @@
+{
+  "name": "leaflet-adventures-destinations",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactive Leaflet map for adventure destinations on TribeTravel.eu",
+  "author": "richardevcom",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^24.10.0",
+    "sass": "^1.93.3",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "vite-plugin-static-copy": "^3.1.4"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "motion": "^12.23.24",
+    "world-geojson": "^3.4.0"
+  }
+}
