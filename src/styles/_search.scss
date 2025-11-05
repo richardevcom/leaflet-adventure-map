@@ -1,0 +1,164 @@
+/**
+ * Search component styles
+ */
+
+@use 'variables' as *;
+
+// === Desktop Search Container ===
+.search-container {
+  position: fixed;
+  top: $space-lg;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  width: calc(100% - $space-2xl);
+  max-width: 640px;
+}
+
+.search-input-group {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  background: $color-bg;
+  border-radius: $radius-full;
+  padding: 14px $space-lg;
+  box-shadow: $shadow-lg;
+  transition: all $transition-normal;
+  max-width: 480px;
+  margin: 0 auto;
+  opacity: 0.85;
+  
+  &:hover,
+  &:focus-within {
+    max-width: 640px;
+    box-shadow: $shadow-xl;
+    opacity: 1;
+  }
+  
+  &:hover .search-icon,
+  &:focus-within .search-icon {
+    color: $color-text;
+  }
+}
+
+.search-icon {
+  flex-shrink: 0;
+  color: $color-text-light;
+  transition: color $transition-fast;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: $color-text;
+  background: transparent;
+  
+  &::placeholder {
+    color: $color-text-light;
+  }
+}
+
+.search-clear {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: $color-text-light;
+  color: $color-bg;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-size: 11px;
+  
+  &.active {
+    display: flex;
+  }
+  
+  &:hover {
+    background: $color-text;
+  }
+}
+
+// === Search Dropdown ===
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + $space-sm);
+  left: 0;
+  right: 0;
+  background: $color-bg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-xl;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all $transition-normal;
+  
+  &.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-dropdown-item {
+  padding: $space-md $space-lg;
+  cursor: pointer;
+  transition: background $transition-fast;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:hover {
+    background: $color-bg-secondary;
+  }
+  
+  strong {
+    color: $color-text;
+    font-weight: 600;
+  }
+  
+  small {
+    color: $color-text-muted;
+    font-size: 13px;
+  }
+  
+  mark {
+    background: rgba($color-accent, 0.15);
+    color: $color-accent;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+}
+
+// === Mobile Search ===
+.mobile-search-container {
+  display: none;
+  
+  @media (max-width: $breakpoint-tablet) {
+    display: block;
+    position: fixed;
+    top: $space-sm;
+    left: $space-sm;
+    right: $space-sm;
+    z-index: 2000;
+  }
+  
+  .search-input-group {
+    max-width: 100%;
+    opacity: 1;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .search-container {
+    display: none;
+  }
+}

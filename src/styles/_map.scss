@@ -1,0 +1,157 @@
+/**
+ * Map and price pin styles
+ */
+
+@use 'variables' as *;
+
+// === Map Wrapper ===
+.map-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+// === Map Container ===
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ecf0f1; // Light gray ocean/water
+  
+  // Prevent flickering during zoom/pan
+  .leaflet-pane {
+    will-change: transform;
+  }
+  
+  .leaflet-tile-pane {
+    will-change: transform;
+  }
+  
+  .leaflet-overlay-pane {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .leaflet-zoom-animated {
+    will-change: transform;
+  }
+  
+  svg {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  path {
+    shape-rendering: geometricPrecision;
+    will-change: auto;
+  }
+  
+  .leaflet-marker-pane {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  .leaflet-zoom-anim .leaflet-zoom-animated {
+    transition-timing-function: $transition-timing;
+  }
+}
+
+// === Leaflet Controls ===
+.leaflet-control-attribution {
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 5px;
+  border-radius: 3px;
+  
+  a {
+    color: $color-text;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.leaflet-control-zoom {
+  border: none;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  
+  a {
+    background: $color-bg;
+    color: $color-text;
+    border: none;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background: $color-bg-secondary;
+    }
+    
+    &.leaflet-disabled {
+      background: $color-disabled;
+      color: $color-disabled-text;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// === Price Pin Markers ===
+.price-pin-icon {
+  background: transparent;
+  border: none;
+}
+
+.price-pin {
+  padding: 8px 14px;
+  background: $color-text;
+  color: $color-bg;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: $radius-full;
+  box-shadow: $shadow-md;
+  white-space: nowrap;
+  transition: all $transition-normal;
+  cursor: pointer;
+  animation: pinFadeIn 0.4s $transition-timing backwards;
+  
+  &:hover {
+    background: $color-accent;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: $shadow-lg;
+  }
+  
+  &.active {
+    background: $color-accent;
+    transform: translateY(-4px) scale(1.12);
+    box-shadow: 0 0 0 3px rgba($color-accent, 0.3), $shadow-xl;
+  }
+}
+
+@keyframes pinFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// === Territory Styles (GeoJSON polygons) ===
+.leaflet-interactive {
+  cursor: pointer;
+  pointer-events: all !important;
+  transition: none; // No transitions for territories (clean minimal look)
+}

@@ -1,0 +1,258 @@
+/**
+ * Mobile responsive styles
+ */
+
+@use 'variables' as *;
+
+// === Tablet and Mobile ===
+@media (max-width: 768px) {
+  .search-container {
+    display: none;
+  }
+
+  .main-layout {
+    padding-top: 0;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 380px;
+    z-index: 1050;
+    background: transparent;
+    transition: left $transition-normal;
+    padding-top: $space-lg;
+    
+    &.mobile-open {
+      left: 0;
+    }
+  }
+
+  .mobile-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    top: $space-lg;
+    left: $space-md;
+    right: $space-md;
+    z-index: 2100;
+    gap: 0;
+    align-items: center;
+    transition: all $transition-normal;
+    padding-right: 16px;
+    
+    // Search active state - right column 100%, left column 0
+    &.search-active {
+      grid-template-columns: 0fr 1fr;
+      
+      #mobileFilterBtn {
+        opacity: 0;
+        pointer-events: none;
+        width: 0;
+        padding: 0;
+      }
+    }
+    
+    // Filter active state - position button next to sidebar
+    &.filter-active {
+      grid-template-columns: 50px 0fr;
+      left: calc(350px + $space-lg);
+      right: auto;
+      
+      #mobileFilterBtn {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border-radius: $radius-sm;
+        flex-shrink: 0;
+        
+        span {
+          display: none;
+        }
+        
+        svg {
+          margin: 0;
+        }
+      }
+      
+      .search-container {
+        opacity: 0;
+        pointer-events: none;
+        width: 0;
+      }
+    }
+  }
+
+  .mobile-btn#mobileFilterBtn {
+    transition: all $transition-normal;
+    white-space: nowrap;
+    min-width: 0;
+    justify-content: center;
+    color: $color-text;
+  }
+
+  .mobile-controls .search-container {
+    display: block;
+    position: relative;
+    transition: all $transition-normal;
+    min-width: 0;
+    top: 0;
+    
+    .search-input-group {
+      width: 100%;
+    }
+    
+    .search-dropdown {
+      top: calc(100% + $space-sm);
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .results-panel {
+    left: $space-md;
+    right: $space-md;
+    bottom: $space-md;
+    border-radius: $radius-lg;
+    margin-top: 88px;
+    max-height: 90vh;
+    margin-right: 0;
+    
+    &.collapsed {
+      max-height: 88px;
+    }
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-md;
+  }
+
+  .card-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .adventure-card {
+    font-size: 13px;
+  }
+
+  .card-content {
+    padding: $space-md;
+  }
+
+  .card-header h3 {
+    font-size: 18px;
+  }
+
+  .card-meta {
+    font-size: 12px;
+  }
+
+  .card-info {
+    gap: $space-sm;
+  }
+
+  .info-item {
+    font-size: 11px;
+  }
+
+  .card-footer {
+    margin-top: $space-md;
+  }
+
+  .price-current {
+    font-size: 18px;
+  }
+
+  .price-original {
+    font-size: 12px;
+  }
+
+  .card-button {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+// === Mobile ===
+@media (max-width: 480px) {
+  .sidebar {
+    max-width: 100%;
+  }
+
+  .filter-box {
+    padding: $space-md;
+  }
+
+  .results-panel {
+    margin-right: 0;
+  }
+  
+  .results-header {
+    padding: $space-md $space-lg;
+  }
+
+  .results-content {
+    padding: $space-lg;
+  }
+
+  // Show mobile close button in filter header when sidebar is open
+  .sidebar.mobile-open .mobile-close-btn {
+    display: flex;
+    background: #000000;
+  }
+
+  // Hide external mobile filter button when sidebar is open on small screens
+  .sidebar.mobile-open ~ .mobile-controls .mobile-controls.filter-active #mobileFilterBtn {
+    display: none;
+  }
+
+  .mobile-controls.filter-active {
+    display: none;
+  }
+}
+
+// === Extra Small Mobile ===
+@media (max-width: 400px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// === Desktop Hide Mobile Elements ===
+@media (min-width: 769px) {
+  .mobile-controls,
+  .mobile-close-btn {
+    display: none !important;
+  }
+}
+
+// === Scrollbar Styling ===
+.results-content::-webkit-scrollbar,
+.search-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.results-content::-webkit-scrollbar-track,
+.search-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.results-content::-webkit-scrollbar-thumb,
+.search-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+}
+
+.results-content::-webkit-scrollbar-thumb:hover,
+.search-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+

@@ -2,7 +2,7 @@
  * TypeScript type definitions for Leaflet Adventures Map
  */
 
-import type { Layer } from 'leaflet';
+import type { Layer, Marker } from 'leaflet';
 
 /**
  * Adventure package difficulty levels
@@ -22,10 +22,10 @@ export interface Adventure {
   id: string;
   /** Adventure package name */
   name: string;
-  /** ISO country code */
-  countryCode: string;
   /** Country name */
-  countryName: string;
+  country: string;
+  /** ISO country code (2 letters) */
+  countryCode: string;
   /** Latitude coordinate */
   lat: number;
   /** Longitude coordinate */
@@ -36,10 +36,6 @@ export interface Adventure {
   difficulty: AdventureDifficulty;
   /** Adventure typology/category */
   typology: AdventureTypology;
-  /** Start date (ISO format YYYY-MM-DD) */
-  startDate: string;
-  /** End date (ISO format YYYY-MM-DD) */
-  endDate: string;
   /** Price in EUR */
   price: number;
   /** Sale price in EUR (if on sale) */
@@ -48,75 +44,15 @@ export interface Adventure {
   onSale: boolean;
   /** Thumbnail image URL */
   imageUrl?: string;
-  /** Package details page URL */
-  url: string;
-  /** Short description */
-  description?: string;
 }
 
 /**
- * GeoJSON Feature properties for adventures
- */
-export interface AdventureProperties extends Adventure {
-  // Extends Adventure with GeoJSON-specific props if needed
-}
-
-/**
- * GeoJSON Feature representing an adventure location
- */
-export interface AdventureFeature {
-  type: 'Feature';
-  properties: AdventureProperties;
-  geometry: {
-    type: 'Point';
-    coordinates: [number, number]; // [lng, lat]
-  };
-}
-
-/**
- * GeoJSON FeatureCollection of all adventures
- */
-export interface AdventuresCollection {
-  type: 'FeatureCollection';
-  features: AdventureFeature[];
-}
-
-/**
- * Country territory properties (for country polygons)
- */
-export interface CountryProperties {
-  /** Display name of the country */
-  name: string;
-  /** ISO country code */
-  code: string;
-  /** Type identifier */
-  type: 'country';
-}
-
-/**
- * GeoJSON Feature representing a country territory
- */
-export interface CountryFeature {
-  type: 'Feature';
-  properties: CountryProperties;
-  geometry: GeoJSON.Geometry;
-}
-
-/**
- * GeoJSON FeatureCollection of country territories
- */
-export interface CountriesCollection {
-  type: 'FeatureCollection';
-  features: CountryFeature[];
-}
-
-/**
- * Filter state for adventure search
+ * Filter state for adventure search (AND logic applied)
  */
 export interface FilterState {
   /** Search query (country or adventure name) */
   search: string;
-  /** Selected country codes */
+  /** Selected country codes (all selected by default) */
   countries: string[];
   /** Selected durations in days */
   durations: number[];
@@ -124,34 +60,66 @@ export interface FilterState {
   difficulties: AdventureDifficulty[];
   /** Selected typologies */
   typologies: AdventureTypology[];
-  /** Date range filter */
-  dateRange: {
-    from: Date | null;
-    to: Date | null;
-  };
-  /** Price range filter (EUR) */
-  priceRange: {
-    min: number;
-    max: number;
-  };
+  /** Date from filter (not implemented in mockup) */
+  dateFrom: Date | null;
+  /** Date to filter (not implemented in mockup) */
+  dateTo: Date | null;
+  /** Price minimum in EUR */
+  priceMin: number;
+  /** Price maximum in EUR */
+  priceMax: number;
 }
 
 /**
- * Map interaction state tracking
+ * Search result item for dropdown
  */
-export interface MapState {
-  /** Currently active/selected country code */
-  activeCountry: string | null;
-  /** Currently active/selected adventure ID */
-  activeAdventure: string | null;
-  /** Currently hovered layer */
-  hoveredLayer: Layer | null;
-  /** Current filter state */
-  filters: FilterState;
+export interface SearchResult {
+  /** Type of search result */
+  type: 'country' | 'adventure';
+  /** Country code (if type is country) */
+  countryCode?: string;
+  /** Country name (if type is country) */
+  countryName?: string;
+  /** Adventure object (if type is adventure) */
+  adventure?: Adventure;
+  /** Number of adventures in this country (for country results) */
+  count?: number;
 }
 
 /**
- * Leaflet style configuration for territory states
+ * Price marker data for map
+ */
+export interface PriceMarkerData {
+  /** Leaflet marker instance */
+  marker: Marker<any>;
+  /** Associated adventure */
+  adventure: Adventure;
+  /** Whether marker is currently active */
+  isActive: boolean;
+}
+
+/**
+ * Map configuration options
+ */
+export interface MapConfig {
+  /** Map center coordinates [lat, lng] */
+  center: [number, number];
+  /** Initial zoom level */
+  zoom: number;
+  /** Minimum zoom level */
+  minZoom: number;
+  /** Maximum zoom level */
+  maxZoom?: number;
+  /** Maximum bounds */
+  maxBounds?: [[number, number], [number, number]];
+  /** Enable scroll wheel zoom */
+  scrollWheelZoom: boolean;
+  /** Show zoom control */
+  zoomControl: boolean;
+}
+
+/**
+ * Territory (country polygon) style configuration
  */
 export interface TerritoryStyle {
   fillColor: string;
@@ -159,4 +127,85 @@ export interface TerritoryStyle {
   color: string;
   weight: number;
   opacity: number;
+}
+
+/**
+ * Map layer references
+ */
+export interface MapLayers {
+  /** Land layer (white continents) */
+  landLayer?: Layer;
+  /** Territory layers (country polygons) */
+  territoryLayer?: Layer;
+  /** Price markers */
+  markers: PriceMarkerData[];
+}
+
+/**
+ * UI state tracking
+ */
+export interface UIState {
+  /** Currently active adventure ID */
+  activeAdventureId: string | null;
+  /** Whether mobile view is active */
+  isMobileView: boolean;
+  /** Whether filters panel is open (mobile) */
+  isFiltersPanelOpen: boolean;
+  /** Whether results panel is open (mobile) */
+  isResultsPanelOpen: boolean;
+  /** Current filtered adventures */
+  filteredAdventures: Adventure[];
+  /** All available adventures */
+  allAdventures: Adventure[];
+}
+
+/**
+ * Debounce timer reference
+ */
+export interface DebounceTimer {
+  timeoutId: number | null;
+}
+
+/**
+ * GeoJSON Feature properties for Natural Earth territories
+ */
+export interface NaturalEarthProperties {
+  /** ISO Alpha-2 code */
+  ISO_A2?: string;
+  /** ISO Alpha-3 code */
+  ISO_A3?: string;
+  /** Admin name */
+  ADMIN?: string;
+  /** Alternative name */
+  NAME?: string;
+  /** Other properties */
+  [key: string]: any;
+}
+
+/**
+ * Filter section configuration
+ */
+export interface FilterSection {
+  /** Section ID */
+  id: string;
+  /** Section title */
+  title: string;
+  /** Whether section is collapsed */
+  collapsed: boolean;
+  /** Filter items in this section */
+  items: FilterItem[];
+}
+
+/**
+ * Individual filter item (checkbox)
+ */
+export interface FilterItem {
+  /** Filter value */
+  value: string | number;
+  /** Display label */
+  label: string;
+  /** Whether item is selected */
+  selected: boolean;
+  /** Item count (number of matching adventures) */
+  count?: number;
 }

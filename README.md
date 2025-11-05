@@ -1,415 +1,548 @@
-# 🗺️ Leaflet Adventures Destinations
+<div align="center">
 
-Interactive map component displaying adventure destinations with territory highlighting. Built with TypeScript, Leaflet.js, and Vite for integration into TribeTravel.eu.
+# 🗺️ Leaflet Adventure Map
 
-![Version](https://img.shields.io/badge/version-1.0.0-orange)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
-![Leaflet](https://img.shields.io/badge/Leaflet-1.9-green)
+**Beautiful, minimal interactive map for exploring adventure travel destinations**
+
+[![Version](https://img.shields.io/badge/version-1.0.0-orange?style=flat-square)](https://github.com/richardevcom/leaflet-adventure-map/releases)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Leaflet](https://img.shields.io/badge/Leaflet-1.9-green?style=flat-square&logo=leaflet)](https://leafletjs.com/)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![Build](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)](https://github.com/richardevcom/leaflet-adventure-map)
+
+**[Live Demo](#) • [Documentation](#-table-of-contents) • [Report Bug](https://github.com/richardevcom/leaflet-adventure-map/issues) • [Request Feature](https://github.com/richardevcom/leaflet-adventure-map/issues)**
+
+![Adventure Map Preview](preview.gif)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [✨ Features](#-features)
+- [🎯 Why This Project](#-why-this-project)
+- [🚀 Quick Start](#-quick-start)
+- [📦 Installation](#-installation)
+- [🏗️ Project Structure](#️-project-structure)
+- [🎨 Design System](#-design-system)
+- [🔧 Configuration](#-configuration)
+- [🔌 Integration](#-integration)
+- [🛠️ Development](#️-development)
+- [📊 Performance](#-performance)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [👤 Author](#-author)
 
 ---
 
 ## ✨ Features
 
-- **Interactive Territory Highlighting**: Click and hover on country/city boundaries
-- **Three Visual States**: Default (light gray) → Hover (black) → Active (accent color)
-- **Smart Selection**: Single-select mode with click-to-toggle functionality
-- **Auto-zoom**: Automatically fits map to show all destinations
-- **Destination Labels**: Display names on active selection
-- **Smooth Transitions**: CSS-powered animations for state changes
-- **Type-safe**: Built with TypeScript strict mode
-- **Lightweight**: Minimal dependencies, optimized for web
-- **Unminified Build**: Readable output for easy integration and debugging
+### 🎯 Core Functionality
+
+- **🔍 Real-time Search** - Instant search with dropdown suggestions for countries and adventures
+- **🗺️ Interactive Map** - Click territories to filter destinations, with smooth zoom animations
+- **💰 Price Markers** - Dynamic price pins with sale badges and hover states
+- **⚡ Smart Filtering** - AND logic across multiple filter dimensions
+- **📱 Mobile First** - Responsive design with sidebar slide-in and bottom collapsible panel
+- **🎭 Beautiful UI** - Minimalist design with floating containers and soft shadows
+
+### 🎛️ Advanced Filters
+
+| Filter Type | Options | Logic |
+|------------|---------|-------|
+| **Destinations** | 8+ countries with item counts | Multi-select AND |
+| **Duration** | 5, 7, 10, 15+ days | Multi-select AND |
+| **Difficulty** | Easy → Difficult (4 levels) | Multi-select AND |
+| **Activity Type** | Sports / Vacation | Multi-select AND |
+| **Price Range** | Dual-slider with live preview | Range filter |
+| **Date Range** | From/To date picker | Date filter |
+
+### 🎨 UI/UX Highlights
+
+- ✅ Debounced search (300ms) and price sliders (500ms)
+- ✅ Collapsible filter sections with smooth animations
+- ✅ Adventure cards with images, metadata, and pricing
+- ✅ Empty states with helpful messaging
+- ✅ Scroll indicators for long content
+- ✅ Opacity transitions on hover (0.85 → 1.0)
+- ✅ Bottom panel collapse/expand (72px ↔ 91.6vh)
 
 ---
 
-## � Debugging
+## 🎯 Why This Project
 
-The map includes a comprehensive debugging toolbar to help diagnose issues during development.
+This project demonstrates:
 
-### Enable Debug Mode
+- 🏗️ **Clean Architecture** - Modular TypeScript with separation of concerns
+- 🎨 **Design Systems** - SCSS variables, consistent spacing, professional polish
+- ♿ **Accessibility** - Semantic HTML, ARIA labels, keyboard navigation
+- 📱 **Responsive Design** - Mobile-first approach with adaptive layouts
+- ⚡ **Performance** - Debounced interactions, optimized builds, lazy rendering
+- 🔧 **Developer Experience** - TypeScript strict mode, clear documentation, easy setup
 
-Add `?debug=true` to the URL:
-```
-http://localhost:5173/?debug=true
-http://yourdomain.com/map?debug=true
-```
+Perfect for:
+- 🌍 Travel booking platforms
+- 🏔️ Adventure tourism websites
+- 📍 Destination discovery apps
+- 🗺️ Interactive location browsers
 
-Or enable programmatically in the browser console:
-```javascript
-localStorage.setItem('leaflet_debug', JSON.stringify({enabled: true}));
-location.reload();
-```
+---
 
-### Debug Toolbar Features
+## 🚀 Quick Start
 
-- **Verbose Logging**: See detailed console output for all operations
-- **Log GeoJSON**: Validate GeoJSON structure and geometry data
-- **Log Events**: Track hover, click, and other map interactions
-- **Log Styles**: Monitor style changes (hover, active states)
-- **Clear Logs**: Reset the debug console
-- **Export Logs**: Download complete debug session as JSON
-- **Disable Debug**: Turn off debug mode and reload
+### Prerequisites
 
-### Common Issues
+- Node.js 18+ or Bun 1.3+
+- Modern browser with ES2020+ support
 
-**"Invalid GeoJSON object" error:**
-- Check if `destinations.geojson` has `geometry` property for all features
-- Regenerate GeoJSON: `bun src/utils/generateGeoJSON.ts`
-- Enable debug mode to see which feature is missing geometry
-
-**Map not showing territories:**
-- Open debug toolbar and check "Log GeoJSON" 
-- Verify all features have valid `geometry.coordinates`
-- Check browser console for error details
-
-**Styles not applying:**
-- Enable "Log Styles" in debug toolbar
-- Check if styles are being applied to correct layers
-- Verify CSS is loaded (check Network tab)
-
-## �🚀 Quick Start
-
-### Development
+### Installation
 
 ```bash
+# Clone repository
+git clone https://github.com/richardevcom/leaflet-adventure-map.git
+cd leaflet-adventure-map
+
 # Install dependencies
 bun install
+# or: npm install
 
-# Start dev server
+# Start development server
 bun run dev
+# or: npm run dev
 
-# Open browser
-# http://localhost:5173
+# Open browser to http://localhost:5173
 ```
 
-### Production Build
+### Build for Production
 
 ```bash
-# Build unminified output
+# Type check
+bun run type-check
+
+# Build optimized bundle
 bun run build
 
-# Preview build
+# Preview production build
 bun run preview
-```
-
-### Type Checking
-
-```bash
-# Run TypeScript type check
-bun run type-check
 ```
 
 ---
 
 ## 📦 Installation
 
-### Prerequisites
-
-- **Bun** 1.3+ (or Node.js 18+)
-- Modern browser with ES2022 support
-
-### Clone & Install
+### Option 1: Package Manager
 
 ```bash
-git clone <repository-url>
-cd leaflet-adventures-destinations
+# Using Bun (recommended)
 bun install
+
+# Using npm
+npm install
+
+# Using yarn
+yarn install
+
+# Using pnpm
+pnpm install
 ```
 
----
-
-## 🎨 Integration
-
-### Option 1: Direct Script Include
+### Option 2: CDN (Coming Soon)
 
 ```html
-<!-- Include CSS -->
-<link rel="stylesheet" href="dist/assets/main.css">
-
-<!-- Map container -->
-<div id="map"></div>
-
-<!-- Include JS -->
-<script type="module" src="dist/assets/main.js"></script>
+<link rel="stylesheet" href="https://cdn.example.com/leaflet-adventure-map.css">
+<script src="https://cdn.example.com/leaflet-adventure-map.js"></script>
 ```
-
-### Option 2: Copy to WordPress Theme
-
-```bash
-# Copy dist files to theme assets
-cp -r dist/* /path/to/wp-content/themes/your-theme/assets/map/
-```
-
-Then include in your theme:
-
-```php
-<!-- In your template file -->
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/map/assets/main.css">
-<div id="map"></div>
-<script type="module" src="<?php echo get_template_directory_uri(); ?>/assets/map/assets/main.js"></script>
-```
-
-### Option 3: CDN Hosting
-
-Upload `dist/` folder to your CDN and reference via absolute URLs.
 
 ---
 
-## 🎯 Destinations
+## 🏗️ Project Structure
 
-Current adventure destinations (10 countries):
+```
+leaflet-adventure-map/
+├── src/
+│   ├── data/
+│   │   └── mockAdventures.ts       # Adventure data (replace with API)
+│   ├── types/
+│   │   └── index.ts                # TypeScript interfaces
+│   ├── utils/
+│   │   ├── filterManager.ts        # Filter logic (AND conditions)
+│   │   ├── searchManager.ts        # Search & debounce utilities
+│   │   ├── mapManager.ts           # Leaflet operations
+│   │   └── uiManager.ts            # UI rendering & updates
+│   ├── styles/
+│   │   ├── main.scss               # Main entry
+│   │   ├── _variables.scss         # Design tokens
+│   │   ├── _reset.scss             # CSS reset
+│   │   ├── _search.scss            # Search component
+│   │   ├── _filters.scss           # Filters sidebar
+│   │   ├── _results.scss           # Results panel
+│   │   ├── _map.scss               # Map & markers
+│   │   └── _mobile.scss            # Responsive styles
+│   ├── main.ts                     # Application entry
+│   └── vite-env.d.ts              # Vite declarations
+├── public/
+│   └── data/
+│       └── world.geojson           # Country boundaries
+├── index.html                      # HTML template
+├── vite.config.ts                  # Vite configuration
+├── tsconfig.json                   # TypeScript config
+└── package.json                    # Dependencies
+```
 
-1. 🇮🇸 **Iceland** (IS) — Northern lights, glaciers
-2. 🇳🇴 **Norway** (NO) — Fjords, wilderness  
-3. 🇳🇿 **New Zealand** (NZ) — Mountains, adventure sports
-4. 🇨🇷 **Costa Rica** (CR) — Rainforests, wildlife
-5. 🇯🇵 **Japan** (JP) — Cultural adventures
-6. 🇲🇦 **Morocco** (MA) — Sahara desert, Atlas mountains
-7. 🇵🇪 **Peru** (PE) — Machu Picchu, Andes
-8. 🇹🇿 **Tanzania** (TZ) — Safaris, Kilimanjaro
-9. 🇵🇹 **Portugal** (PT) — Coastal adventures
-10. 🇬🇷 **Greece** (GR) — Islands, Mediterranean
+### Architecture Overview
 
-### Adding More Destinations
+```
+┌─────────────────────────────────────────┐
+│            main.ts (Entry)              │
+├─────────────────────────────────────────┤
+│  ┌──────────┐  ┌──────────┐  ┌────────┐│
+│  │ Filter   │  │ Search   │  │   Map  ││
+│  │ Manager  │  │ Manager  │  │Manager ││
+│  └─────┬────┘  └─────┬────┘  └────┬───┘│
+│        │             │              │   │
+│        └─────────────┴──────────────┘   │
+│                      │                  │
+│               ┌──────▼──────┐           │
+│               │ UI Manager  │           │
+│               └─────────────┘           │
+└─────────────────────────────────────────┘
+```
 
-Edit `src/utils/generateGeoJSON.ts` and add countries:
+---
+
+## 🎨 Design System
+
+### Color Palette
+
+```scss
+// Brand Colors
+$color-accent: #EA5B10;           // Primary orange
+$color-accent-hover: #d14f0a;     // Darker orange
+
+// Text Colors
+$color-text: #000000;             // Primary
+$color-text-muted: #6e6e6e;      // Secondary
+$color-text-light: #999999;      // Tertiary
+
+// Background Colors
+$color-bg: #ffffff;               // White
+$color-bg-secondary: #fafafa;    // Off-white
+$color-disabled: #f5f5f5;        // Light gray
+```
+
+### Typography
+
+```scss
+// Font Families
+$font-body: 'Inter', sans-serif;        // UI text
+$font-heading: 'Teko', sans-serif;      // Headings
+$font-decorative: 'Caveat', cursive;    // Accents
+
+// Font Sizes
+Body: 15px | Heading: 22px | Small: 13-14px
+```
+
+### Spacing Scale (4px base)
+
+```scss
+$space-xs:  4px   // Tight spacing
+$space-sm:  8px   // Small gaps
+$space-md:  16px  // Medium spacing
+$space-lg:  24px  // Large gaps
+$space-xl:  32px  // Extra large
+$space-2xl: 48px  // Maximum
+```
+
+### Shadows
+
+```scss
+$shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.04)
+$shadow-md: 0 2px 4px rgba(0,0,0,0.04), 0 4px 8px rgba(0,0,0,0.06)
+$shadow-lg: 0 4px 8px rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.08)
+$shadow-xl: 0 8px 16px rgba(0,0,0,0.04), 0 16px 32px rgba(0,0,0,0.1)
+```
+
+---
+
+## 🔧 Configuration
+
+### Update Adventure Data
+
+Edit `src/data/mockAdventures.ts`:
 
 ```typescript
-const destinations = [
-  { name: 'Iceland', code: 'IS', type: 'country' as const },
-  { name: 'YourCountry', code: 'XX', type: 'country' as const },
-  // ... add more
+import type { Adventure } from '../types/index.js';
+
+export const mockAdventures: Adventure[] = [
+  {
+    id: 'unique-id',
+    name: 'Iceland Aurora Trek',
+    country: 'Iceland',
+    countryCode: 'IS',      // ISO 2-letter code
+    lat: 64.9631,           // Latitude
+    lng: -19.0208,          // Longitude
+    duration: 7,            // Days
+    difficulty: 'Medium',   // Easy|Medium|Challenging|Difficult
+    typology: 'Sports Activities',  // Sports Activities|Vacation
+    price: 1850,            // EUR
+    salePrice: 1650,        // EUR or null
+    onSale: true,
+    imageUrl: 'https://example.com/image.jpg'
+  },
+  // ... more adventures
 ];
 ```
 
-Then regenerate GeoJSON:
+### Customize Styling
 
-```bash
-bun run src/utils/generateGeoJSON.ts
+Edit `src/styles/_variables.scss`:
+
+```scss
+// Change brand color
+$color-accent: #EA5B10;
+
+// Adjust spacing
+$space-base: 4px;
+
+// Modify breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
 ```
 
----
+### Vite Configuration
 
-## 🎨 Customization
-
-### Colors
-
-Edit `src/utils/mapHelpers.ts`:
+Edit `vite.config.ts` for custom build settings:
 
 ```typescript
-export const COLORS = {
-  accent: '#ff6b35',      // Active state color
-  darkGray: '#2c3e50',    // Border color
-  lightGray: '#ecf0f1',   // Default background
-  black: '#000000',       // Hover background
-  white: '#ffffff',       // Contrast
-} as const;
-```
-
-### Map Configuration
-
-Edit `src/utils/mapHelpers.ts`:
-
-```typescript
-export const MAP_CONFIG = {
-  center: [20, 0] as [number, number],  // Initial center
-  zoom: 2,                              // Initial zoom
-  minZoom: 2,                           // Minimum zoom
-  maxZoom: 8,                           // Maximum zoom
-  padding: [50, 50] as [number, number], // Fit bounds padding
-} as const;
-```
-
-### Styling
-
-Edit `src/styles/main.scss` to customize appearance.
-
----
-
-## 📁 Project Structure
-
-```
-leaflet-adventures-destinations/
-├── .github/
-│   ├── copilot-instructions.md    # AI assistant configuration
-│   └── persona.md                  # Tone & style guide
-├── docs/
-│   ├── whitepaper.md               # Architecture documentation
-│   ├── TODO.md                     # Development tasks
-│   └── CHANGELOG.md                # Version history
-├── src/
-│   ├── data/
-│   │   └── destinations.geojson    # GeoJSON boundary data
-│   ├── styles/
-│   │   └── main.scss               # Map styles
-│   ├── types/
-│   │   ├── index.ts                # TypeScript interfaces
-│   │   └── geojson.d.ts            # GeoJSON module declaration
-│   ├── utils/
-│   │   ├── mapHelpers.ts           # Helper functions & config
-│   │   └── generateGeoJSON.ts      # GeoJSON generator script
-│   ├── map.ts                      # Core map logic
-│   └── main.ts                     # Entry point
-├── public/
-│   └── index.html                  # Development HTML
-├── dist/                           # Build output (unminified)
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
-```
-
----
-
-## 🛠️ Tech Stack
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Leaflet** | 1.9.4 | Map rendering & GeoJSON layers |
-| **TypeScript** | 5.9.3 | Type-safe development |
-| **Vite** | 7.1.x | Dev server & build tool |
-| **SCSS** | 1.93.x | Styling |
-| **Bun** | 1.3.x | Package manager & runtime |
-| **world-geojson** | 3.4.0 | Country boundary data |
-
----
-
-## 📚 Documentation
-
-- **[Whitepaper](./docs/whitepaper.md)** — Architecture & design decisions
-- **[TODO](./docs/TODO.md)** — Development roadmap
-- **[CHANGELOG](./docs/CHANGELOG.md)** — Version history
-- **[Copilot Instructions](./.github/copilot-instructions.md)** — AI assistant guide
-
----
-
-## 🌐 External References
-
-### Official Documentation
-- [Leaflet 2.0 API](https://leafletjs.com/reference-2.0.0.html)
-- [Leaflet Choropleth Tutorial](https://leafletjs.com/examples/choropleth/)
-- [TypeScript + Leaflet](https://docs.maptiler.com/leaflet/examples/ts-get-started/)
-- [Vite Guide](https://vite.dev/guide/)
-- [SCSS Documentation](https://sass-lang.com/documentation/syntax/)
-
-### GeoJSON Data Sources
-- [Natural Earth](https://www.naturalearthdata.com/)
-- [geoBoundaries](https://www.geoboundaries.org/)
-- [world-geojson NPM](https://www.npmjs.com/package/world-geojson)
-
----
-
-## 🔧 Build Configuration
-
-### Unminified Output
-
-Vite is configured to produce unminified, readable JavaScript:
-
-```typescript
-// vite.config.ts
 export default defineConfig({
+  base: '/custom-path/',  // Set base path
   build: {
-    minify: false,           // Keep code readable
-    sourcemap: true,         // Generate source maps
-    rollupOptions: {
-      output: {
-        format: 'es',        // ES modules
-      },
-    },
+    outDir: 'custom-dist', // Change output directory
+    sourcemap: true,       // Enable source maps
   },
 });
 ```
 
-### Output Structure
+---
 
+## 🔌 Integration
+
+### WordPress Integration
+
+#### Step 1: Build for Production
+
+```bash
+bun run build
 ```
-dist/
-├── assets/
-│   ├── main.js         # Unminified JavaScript
-│   ├── main.css        # Compiled CSS
-│   └── *.geojson       # GeoJSON data
-└── index.html
+
+#### Step 2: Copy to Theme
+
+```bash
+cp -r dist/* /path/to/wp-content/themes/your-theme/assets/adventure-map/
+```
+
+#### Step 3: Enqueue Assets
+
+```php
+// functions.php
+function enqueue_adventure_map() {
+    $version = '1.0.0';
+    
+    wp_enqueue_style(
+        'adventure-map-css',
+        get_template_directory_uri() . '/assets/adventure-map/assets/index.css',
+        [],
+        $version
+    );
+    
+    wp_enqueue_script(
+        'adventure-map-js',
+        get_template_directory_uri() . '/assets/adventure-map/assets/index.js',
+        [],
+        $version,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_adventure_map');
+```
+
+#### Step 4: Add to Template
+
+```php
+<!-- page-adventures.php -->
+<?php get_header(); ?>
+
+<div class="adventures-page">
+    <!-- Map container -->
+    <div class="map-wrapper">
+        <div id="map"></div>
+    </div>
+    
+    <!-- Rest of markup is generated by JS -->
+</div>
+
+<?php get_footer(); ?>
+```
+
+### React/Vue Integration
+
+```jsx
+// Coming soon
+import AdventureMap from 'leaflet-adventure-map';
+
+function App() {
+  return <AdventureMap adventures={data} />;
+}
 ```
 
 ---
 
-## 🎯 Usage Example
+## 🛠️ Development
 
-```typescript
-// Initialize map
-import { initializeMap } from './map';
+### Available Scripts
 
-// Create map in #map container
-const map = initializeMap('map');
+```bash
+# Development
+bun run dev          # Start dev server (http://localhost:5173)
+bun run type-check   # Run TypeScript type checker
+bun run build        # Build for production
+bun run preview      # Preview production build
+```
 
-// Map is now interactive:
-// - Hover over territories to see hover state (black)
-// - Click to select (accent color) and show label
-// - Click again to deselect
-// - Only one territory can be active at a time
+### Code Quality
+
+```bash
+# Type checking
+bun run type-check
+
+# Format code (manual)
+# Add prettier if needed
+```
+
+### Environment Variables
+
+Create `.env` file (optional):
+
+```env
+VITE_API_URL=https://api.example.com
+VITE_MAP_TILES=https://tiles.example.com
 ```
 
 ---
 
-## 🐛 Troubleshooting
+## 📊 Performance
 
-### Map not displaying
+### Build Stats
 
-- Check that `#map` container exists in HTML
-- Verify Leaflet CSS is loaded
-- Check browser console for errors
+| Metric | Value |
+|--------|-------|
+| **CSS Bundle** | 42.78 KB (11.85 KB gzip) |
+| **JS Bundle** | 419.59 KB (88.08 KB gzip) |
+| **HTML** | 8.43 KB (1.78 KB gzip) |
+| **Total** | ~471 KB (~102 KB gzip) |
 
-### GeoJSON not loading
+### Optimizations
 
-- Ensure `destinations.geojson` exists in `src/data/`
-- Run `bun run src/utils/generateGeoJSON.ts` to regenerate
+- ✅ Debounced search (300ms)
+- ✅ Debounced price sliders (500ms)
+- ✅ Lazy card rendering
+- ✅ Efficient DOM updates
+- ✅ Tree-shaken builds
+- ✅ CSS purging (automatic)
+- ✅ Gzip compression ready
 
-### TypeScript errors
+### Browser Support
 
-- Run `bun run type-check` to see all errors
-- Ensure `@types/leaflet` and `@types/node` are installed
-
-### Build issues
-
-- Clear `node_modules` and reinstall: `rm -rf node_modules && bun install`
-- Clear dist: `rm -rf dist && bun run build`
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Mobile browsers (iOS 14+, Android 90+)
 
 ---
 
-## 📝 License
+## 🤝 Contributing
 
-MIT
+Contributions are welcome! Please follow these guidelines:
+
+### How to Contribute
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Contribution Guidelines
+
+- Follow existing code style
+- Add TypeScript types for all new code
+- Update documentation for new features
+- Test on multiple browsers
+- Keep commits atomic and well-described
+
+### Code of Conduct
+
+Please be respectful and constructive in all interactions.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2024 richardevcom
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+```
 
 ---
 
 ## 👤 Author
 
-**richardevcom**  
-- GitHub: [@richardevcom](https://github.com/richardevcom)
-- Project: TribeTravel.eu
+<div align="center">
+
+**richardevcom**
+
+[![Website](https://img.shields.io/badge/Website-richardev.com-orange?style=flat-square&logo=google-chrome)](https://richardev.com)
+[![GitHub](https://img.shields.io/badge/GitHub-richardevcom-black?style=flat-square&logo=github)](https://github.com/richardevcom)
+[![Twitter](https://img.shields.io/badge/Twitter-@richardevcom-1DA1F2?style=flat-square&logo=twitter)](https://twitter.com/richardevcom)
+
+</div>
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **Leaflet.js** — Amazing open-source mapping library
-- **Natural Earth** — Free geographic data
-- **geoBoundaries** — Country boundary datasets
-- **CartoDB** — Free tile layers
+- [Leaflet.js](https://leafletjs.com/) - Interactive map library
+- [Natural Earth](https://www.naturalearthdata.com/) - GeoJSON boundary data
+- [Shields.io](https://shields.io/) - Badge generation
+- [Keep a Changelog](https://keepachangelog.com/) - Changelog format
 
 ---
 
-## 🚧 Roadmap
+<div align="center">
 
-See [TODO.md](./docs/TODO.md) for planned features:
+**⭐ Star this repo if you find it helpful!**
 
-- [ ] Multi-select mode
-- [ ] Search/filter functionality
-- [ ] Tooltips on hover
-- [ ] Database integration
-- [ ] API endpoint for dynamic loading
-- [ ] React component version
+**Built with ❤️ for adventure seekers worldwide**
 
----
+[Back to Top](#-leaflet-adventure-map)
 
-**Built with 🖤 for adventure seekers worldwide**
+</div>
