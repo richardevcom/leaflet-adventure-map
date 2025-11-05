@@ -3,6 +3,7 @@ import { resolve } from 'path';
 import json from '@rollup/plugin-json';
 
 export default defineConfig({
+  base: '/leaflet-adventure-map/',
   plugins: [json()],
   assetsInclude: ['**/*.geojson'],
   build: {
